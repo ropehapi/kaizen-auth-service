@@ -1,0 +1,16 @@
+FROM golang:1.23.5
+
+WORKDIR /app
+
+COPY go.mod go.sum ./
+RUN go mod download
+
+# Instala o script de espera pelo banco
+COPY scripts/wait-for-it.sh /wait-for-it.sh
+RUN chmod +x /wait-for-it.sh
+
+# Porta da aplicação
+EXPOSE ${PORT}
+
+# Default: shell interativo (será sobrescrito pelo docker-compose)
+CMD [ "bash" ]

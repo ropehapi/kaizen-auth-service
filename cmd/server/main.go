@@ -11,6 +11,8 @@ import (
 )
 
 func main() {
+	//TODO: Implementar execução da app conteinerizada
+	
 	// Carrega as variáveis de ambiente no projeto
 	err := godotenv.Load()
 	if err != nil {
